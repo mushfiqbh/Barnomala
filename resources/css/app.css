@@ -1,0 +1,298 @@
+@import "tailwindcss";
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: "Anek Bangla", ui-sans-serif, system-ui, sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    @apply m-3;
+}
+
+.container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+.text-primary {
+    @apply text-[#1C1D3E];
+}
+
+.text-nav {
+    @apply text-[#1C1D3E];
+}
+
+.text-nav:hover {
+    @apply text-blue-600;
+}
+
+.text-secondary {
+    @apply text-[#00C8FF];
+}
+
+.btn {
+    @apply inline-flex items-center justify-center cursor-pointer px-4 py-2 font-medium text-white transition-colors duration-200 border border-transparent rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 focus:ring-blue-500;
+}
+
+.btn-secondary {
+    @apply bg-gray-600 hover:bg-gray-700 focus:ring-gray-500;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .btn {
+        @apply px-6 py-3 text-base;
+    }
+
+    .container {
+        @apply px-4;
+    }
+}
+
+/* Custom animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+.animate-fadeInOut {
+    opacity: 1;
+    animation: fadeInOut 3s ease-in forwards infinite alternate-reverse;
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* HTML: <div class="shape-loader"></div> */
+.shape-loader {
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+}
+.shape-loader:before,
+.shape-loader:after {
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: #f03355;
+    -webkit-mask: repeating-linear-gradient(#000 0 5px, #0000 0 10px);
+    mask: repeating-linear-gradient(#000 0 5px, #0000 0 10px);
+    animation: l35 1.5s infinite;
+}
+.shape-loader:after {
+    -webkit-mask: repeating-linear-gradient(#0000 0 5px, #000 0 10px);
+    mask: repeating-linear-gradient(#0000 0 5px, #000 0 10px);
+    --s: -1;
+}
+@keyframes l35 {
+    0%,
+    10% {
+        transform: translate(0) rotate(0);
+    }
+    35% {
+        transform: translate(calc(var(--s, 1) * 50%)) rotate(0);
+    }
+    66% {
+        transform: translate(calc(var(--s, 1) * 50%))
+            rotate(calc(var(--s, 1) * 180deg));
+    }
+    90%,
+    100% {
+        transform: translate(0) rotate(calc(var(--s, 1) * 180deg));
+    }
+}
+
+/* HTML: <div class="loader"></div> */
+.news-loader {
+    width: 55px;
+    aspect-ratio: 1;
+    --g1: conic-gradient(from 90deg at 3px 3px, #0000 90deg, #fff 0);
+    --g2: conic-gradient(from -90deg at 22px 22px, #0000 90deg, #fff 0);
+    background: var(--g1), var(--g1), var(--g1), var(--g2), var(--g2), var(--g2);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    animation: l7 1.5s infinite;
+}
+@keyframes l7 {
+    0% {
+        background-position: 0 0, 0 100%, 100% 100%;
+    }
+    25% {
+        background-position: 100% 0, 0 100%, 100% 100%;
+    }
+    50% {
+        background-position: 100% 0, 0 0, 100% 100%;
+    }
+    75% {
+        background-position: 100% 0, 0 0, 0 100%;
+    }
+    100% {
+        background-position: 100% 100%, 0 0, 0 100%;
+    }
+}
+
+@keyframes pulse-glow {
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+    }
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Clip Path Shape */
+.shape {
+    aspect-ratio: 1;
+    clip-path: shape(
+        from 12.84% 73.34%,
+        curve to 7.99% 42.61% with 7.08% 58.19%,
+        curve to 20.86% 15.89% with 8.91% 27.03%,
+        curve to 48.21% 7.83% with 32.81% 4.75%,
+        curve to 75.79% 19.14% with 63.61% 10.91%,
+        curve to 92.14% 42.43% with 87.97% 27.37%,
+        curve to 89.32% 72.49% with 96.3% 57.5%,
+        curve to 66.46% 89.37% with 82.35% 87.47%,
+        curve to 34.59% 89.88% with 50.58% 91.26%,
+        curve to 12.84% 73.34% with 18.6% 88.49%
+    );
+    position: relative;
+    display: flex; /* Make children flexbox */
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Horizontal center */
+    border: 2px solid #1ecffe;
+    background: #f2f2f2;
+    color: #1ecffe;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    transition: color 0.5s ease;
+}
+
+/* Expanding circle background */
+.shape::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: #1ecffe;
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.9s ease;
+    z-index: 0;
+}
+
+.shape:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Keep content above expanding background */
+.shape > * {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+/* On hover text turns white */
+.shape:hover h2 {
+    color: #fff;
+}
+
+/* Enhanced Heading Animations */
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+/* Pulse animation for decorative elements */
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(1.1);
+    }
+}
+
+.animate-pulse {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Bounce animation for news decorative element */
+@keyframes bounce-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce-slow 2s ease-in-out infinite;
+}

@@ -1,0 +1,41 @@
+---
+deployment:
+  tasks:
+    # === SET PATHS ===
+    - export DEPLOYPATH=/home2/barnomala/public_html/
+    - export APPPATH=/home2/barnomala/public_html/application/
+
+    # === COPY PUBLIC FILES TO public_html ===
+    - /bin/cp -R public/* $DEPLOYPATH
+
+    # === CREATE APPLICATION DIRECTORY ===
+    - /bin/mkdir -p $APPPATH
+    - /bin/mkdir -p $APPPATH/public
+
+    # === COPY ROOT FILES & DIRECTORIES TO APPLICATION FOLDER ===
+    - /bin/cp -R app bootstrap config database resources routes tests storage $APPPATH
+    - /bin/cp -R public/build $APPPATH/public
+    - /bin/cp artisan $APPPATH
+    - /bin/cp composer.json $APPPATH
+    - /bin/cp composer.lock $APPPATH
+    - /bin/cp package.json $APPPATH
+    - /bin/cp package-lock.json $APPPATH
+    - /bin/cp vite.config.js $APPPATH
+    - /bin/cp phpunit.xml $APPPATH
+    - /bin/cp .editorconfig $APPPATH
+    - /bin/cp .env.example $APPPATH
+
+    # === REMOVE FILES WE DON’T WANT ===
+    - /bin/rm -rf $APPPATH/.git
+
+    # === INSTALL PHP DEPENDENCIES ===
+    - cd $APPPATH && /opt/cpanel/composer/bin/composer install --no-dev --optimize-autoloader
+
+    # === INSTALL NODE DEPENDENCIES & BUILD VITE ===
+    - cd $APPPATH && /usr/local/bin/npm install
+    - cd $APPPATH && /usr/local/bin/npm run build
+
+    # === OPTIMIZE LARAVEL ===
+    - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan config:cache
+    - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan route:cache
+    - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan view:cache

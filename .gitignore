@@ -1,0 +1,28 @@
+# Ignore system & editor files
+*.log
+.DS_Store
+.phpactor.json
+.phpunit.result.cache
+/.fleet
+/.idea
+/.nova
+/.phpunit.cache
+/.vscode
+/.zed
+/auth.json
+/Thumbs.db
+
+# Environment files (NEVER upload .env)
+.env
+.env.backup
+.env.production
+
+# Node modules (build locally, then upload /public/build)
+node_modules/
+
+# Storage (but allow public storage for uploads)
+storage/*.key
+storage/pail
+
+# Public (keep build + storage, ignore hot)
+public/hot
