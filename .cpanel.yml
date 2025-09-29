@@ -7,6 +7,7 @@ deployment:
 
     # === COPY PUBLIC FILES TO public_html ===
     - /bin/cp -R public/* $DEPLOYPATH
+    - /bin/cp public/.htaccess $DEPLOYPATH
 
     # === CREATE APPLICATION DIRECTORY ===
     - /bin/mkdir -p $APPPATH
@@ -22,6 +23,7 @@ deployment:
     - /bin/cp package-lock.json $APPPATH
     - /bin/cp vite.config.js $APPPATH
     - /bin/cp phpunit.xml $APPPATH
+
     - /bin/cp .editorconfig $APPPATH
     - /bin/cp .env.example $APPPATH
 
