@@ -15,7 +15,7 @@ The routes are organized into logical groups:
 - **Features**: `/features` - System features listing
 - **News**: `/news` - News index and individual articles
 - **Events**: `/gallery` - Event gallery
-- **Customers**: `/customers`, - Customer showcase
+- **Clients**: `/clients`, - client showcase
 
 #### 2. Authentication Routes
 - **Login**: `/login`, `/admin/login` - Admin login
@@ -32,11 +32,11 @@ All admin routes are prefixed with `/admin` and require authentication:
 - `POST /admin/galleries` - Store new gallery item
 - `DELETE /admin/galleries/{id}` - Delete gallery item
 
-##### Customer Management
-- `GET /admin/customers` - Customer index
-- `POST /admin/customers` - Store new customer
-- `PUT /admin/customers/{id}` - Update customer
-- `DELETE /admin/customers/{id}` - Delete customer
+##### client Management
+- `GET /admin/clients` - client index
+- `POST /admin/clients` - Store new client
+- `PUT /admin/clients/{id}` - Update client
+- `DELETE /admin/clients/{id}` - Delete client
 
 ##### News Management
 - `GET /admin/news` - News management index
@@ -54,13 +54,13 @@ All admin routes are prefixed with `/admin` and require authentication:
 Handles the main landing page with features and news.
 
 #### PublicPageController
-Manages all public-facing pages including about, contact, features, news, gallery, and customers.
+Manages all public-facing pages including about, contact, features, news, gallery, and clients.
 
 #### AuthController
 Handles authentication logic for admin login/logout.
 
 #### AdminController
-Manages all administrative functionality including galleries, customers, news, and search.
+Manages all administrative functionality including galleries, clients, news, and search.
 
 ### Middleware
 

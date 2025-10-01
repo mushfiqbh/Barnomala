@@ -36,42 +36,10 @@
                 </p>
             </div>
 
-            <!-- Modern Customers Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
-                @foreach ($customers as $index => $customer)
-                    <div class="group relative animate-fadeInUp" style="animation-delay: {{ $index * 0.1 }}s;">
-                        <!-- Card -->
-                        <div
-                            class="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col items-center text-center h-full transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group-hover:shadow-blue-200/50 border border-gray-100 hover:border-blue-200">
-
-                            <!-- Logo Container with Animated Border -->
-                            <div class="relative mb-6">
-                                <div
-                                    class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full p-1 transform rotate-0 group-hover:rotate-180 transition-transform duration-700 animate-pulse-glow">
-                                    <div class="bg-white rounded-full p-4">
-                                        <div class="w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
-                                            <img src="{{ asset('storage/' . $customer->image_url) }}"
-                                                alt="{{ $customer->name }}"
-                                                class="max-w-full max-h-full object-contain filter group-hover:brightness-110 transition-all duration-300 animate-float transform group-hover:scale-110">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Content -->
-                            <div class="flex-1 flex flex-col">
-                                <h2
-                                    class="text-xl sm:text-2xl font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors duration-300 leading-tight min-h-[3rem] flex items-center justify-center text-center opacity-100 z-10 relative">
-                                    {{ $customer->name }}
-                                </h2>
-
-                                <a href="{{ $customer->url }}" target="_blank"
-                                    class="text-sm text-blue-500 hover:underline opacity-100 z-10 relative">
-                                    Visit Website
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Modern Clients Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+                @foreach ($clients as $index => $client)
+                    <x-client-card :client="$client" :index="$index" />
                 @endforeach
             </div>
         </div>

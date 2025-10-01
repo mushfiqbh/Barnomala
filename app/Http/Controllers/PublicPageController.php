@@ -41,9 +41,9 @@ class PublicPageController extends Controller
         return view('pages.contact');
     }
 
-    public function customers()
+    public function clients()
     {
-        $customers = DB::table('customers')->get();
-        return view('pages.customers', compact('customers'));
+        $clients = DB::table('clients')->get();
+        return view('pages.clients', compact('clients'));
     }
 }

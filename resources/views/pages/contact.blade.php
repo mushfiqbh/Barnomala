@@ -32,7 +32,8 @@
                         </div>
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-1">যোগাযোগ:</h3>
-                            <p class="text-gray-600">১৫৯ অনাবিল,ধোপাদীঘিরপার, জেলরোড, সিলেট।</p>
+                            <p class="text-gray-600">আল-মারজান শপিং সিটি(৩য় তলা), জিন্দাবাজার, সিলেট।
+                            </p>
                         </div>
                     </div>
 
@@ -52,9 +53,9 @@
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-1">ইমেইল এড্রেস:</h3>
                             <p class="text-gray-600">
-                                <a href="mailto:itlslhelpdesk@gmail.com"
+                                <a href="mailto:teambornomala@gmail.com"
                                     class="text-blue-600 hover:text-blue-800 transition-colors">
-                                    itlslhelpdesk@gmail.com
+                                    teambornomala@gmail.com
                                 </a>
                             </p>
                         </div>
@@ -76,8 +77,11 @@
                         <div>
                             <h3 class="text-lg font-semibold text-gray-900 mb-1">মোবাইল নাম্বার:</h3>
                             <p class="text-gray-600">
+                                <a href="tel:+8801744221385" class="text-blue-600 hover:text-blue-800 transition-colors">
+                                    +88 01744-221385
+                                </a>,
                                 <a href="tel:+8801842485222" class="text-blue-600 hover:text-blue-800 transition-colors">
-                                    +88 01842-485222
+                                    +88 01633-516400
                                 </a>
                             </p>
                         </div>
@@ -147,20 +151,17 @@
         <!-- Map Section -->
         <div class="mt-16" id="map">
             <h2 class="text-2xl font-semibold text-primary mb-6 text-center">আমাদের অবস্থান</h2>
-            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">MS3 Technology BD, 2nd Floor, Al Marjan Shopping Center</h3>
-            
+            <h3 class="text-lg font-semibold text-gray-700 text-center mb-6">এমএসথ্রি টেকনোলজি বিডি,
+                আল-মারজান শপিং সিটি(৩য় তলা)
+                জিন্দাবাজার, সিলেট।
+            </h3>
+
             <!-- Responsive Map Container -->
             <div class="w-full max-w-4xl mx-auto">
                 <div class="relative w-full h-0 pb-[68.29%] rounded-lg overflow-hidden shadow-lg">
-                    <iframe 
-                        class="absolute top-0 left-0 w-full h-full"
+                    <iframe class="absolute top-0 left-0 w-full h-full"
                         src="https://maps.google.com/maps?q=MS3+Technology+BD&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        frameborder="0" 
-                        scrolling="no" 
-                        marginheight="0" 
-                        marginwidth="0"
-                        allowfullscreen
-                        loading="lazy"
+                        frameborder="0" scrolling="no" marginheight="0" marginwidth="0" allowfullscreen loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
                 </div>

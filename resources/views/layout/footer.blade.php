@@ -12,7 +12,7 @@
                 <a href="/about" class="hover:text-blue-300">সম্পর্কে</a>
                 <a href="/contact" class="hover:text-blue-300">যোগাযোগ</a>
                 <a href="/features" class="hover:text-blue-300">বৈশিষ্ট্যসমূহ</a>
-                <a href="/customers" class="hover:text-blue-300">গ্রাহকগণ</a>
+                <a href="/clients" class="hover:text-blue-300">গ্রাহকগণ</a>
                 <a href="/gallery" class="hover:text-blue-300">গ্যালারী</a>
                 <a href="/news" class="hover:text-blue-300">নিউজ</a>
                 <a href="/" class="hover:text-blue-300">হোম</a>
@@ -20,12 +20,17 @@
             </div>
 
             <div class="mt-10">
-                <h5 class="text-lg font-semibold mb-4">MS3 Technology BD</h5>
-                <p class="mb-2">আল মারজান শপিং কমপ্লেক্স (২য় তলা) জিন্দাবাজার</p>
-                <p class="mb-2">১৫৯ অনাবিল, ধোপাদীঘিরপার, জেলরোড, সিলেট, বাংলাদেশ</p>
-                <p class="mb-2">ই-মেইল: <a href="mailto:mstechnology87@gmail.com"
-                        class="text-blue-400 hover:text-blue-300">mstechnology87@gmail.com</a></p>
-                <p>মোবাইল: <a href="tel:+8801744221385" class="text-blue-400 hover:text-blue-300">+88 01744221385</a>
+                <h5 class="text-lg font-semibold mb-4">এমএসথ্রি টেকনোলজি বিডি</h5>
+                <p class="mb-2">ঠিকানা: আল-মারজান শপিং সিটি (৩য় তলা), জিন্দাবাজার</p>
+                <p class="mb-2">সিলেট, বাংলাদেশ</p>
+                <p class="mb-2">ই-মেইল: <a href="mailto:teambornomala@gmail.com"
+                        class="text-blue-400 hover:text-blue-300">teambornomala@gmail.com</a></p>
+                <p>মোবাইল: <a href="tel:+8801744221385" class="text-blue-400 hover:text-blue-300">
+                        01744-221385
+                    </a>,
+                    <a href="tel:+8801744221385" class="text-blue-400 hover:text-blue-300">
+                        01633-516400
+                    </a>
                 </p>
             </div>
         </div>

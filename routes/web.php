@@ -22,7 +22,7 @@ Route::controller(PublicPageController::class)->group(function () {
     Route::get('/contact', 'contact')->name('contact');
     Route::get('/gallery', 'gallery')->name('gallery');
     Route::get('/features', 'features')->name('features');
-    Route::get('/customers', 'customers')->name('customers');
+    Route::get('/clients', 'clients')->name('clients');
     Route::get('/news', 'news')->name('news.index');
     Route::get('/news/{slug}', 'showNews')->name('news.show');
 });
@@ -65,12 +65,12 @@ Route::prefix('admin')
             Route::delete('/{id}', 'deleteGallery')->name('delete');
         });
 
-        // Customer Management
-        Route::get('/customers', 'customers')->name('customers'); // Direct route for backward compatibility
-        Route::prefix('customers')->name('customers.')->group(function () {
-            Route::post('/', 'storeCustomer')->name('store');
-            Route::put('/{id}', 'updateCustomer')->name('update');
-            Route::delete('/{id}', 'deleteCustomer')->name('delete');
+        // client Management
+        Route::get('/clients', 'clients')->name('clients'); // Direct route for backward compatibility
+        Route::prefix('clients')->name('clients.')->group(function () {
+            Route::post('/', 'storeClient')->name('store');
+            Route::put('/{id}', 'updateClient')->name('update');
+            Route::delete('/{id}', 'deleteClient')->name('delete');
         });
 
         // News Management

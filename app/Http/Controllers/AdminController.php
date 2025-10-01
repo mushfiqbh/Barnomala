@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         $stats = [
             'galleries' => DB::table('galleries')->count(),
-            'customers' => DB::table('customers')->count(),
+            'clients' => DB::table('clients')->count(),
             'news' => DB::table('news')->count(),
             'features' => DB::table('features')->count(),
         ];
@@ -89,23 +89,24 @@ class AdminController extends Controller
         }
     }
 
-    // ==================== CUSTOMER MANAGEMENT ====================
+    // ==================== client MANAGEMENT ====================
 
-    public function customers()
+    public function clients()
     {
-        $customers = DB::table('customers')
+        $clients = DB::table('clients')
             ->orderBy('created_at', 'desc')
             ->get();
 
-        return view('admin.customers', compact('customers'));
+        return view('admin.clients', compact('clients'));
     }
 
-    public function storeCustomer(Request $request)
+    public function storeClient(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'image' => ['required', 'image', 'max:5120'], // 5MB max
             'url' => ['nullable', 'url', 'max:255'],
+            'featured' => ['boolean', 'default' => false],
         ], [
             'name.required' => 'গ্রাহকের নাম অবশ্যই প্রয়োজন।',
             'name.max' => 'নাম সর্বোচ্চ 255 অক্ষর হতে পারে।',
@@ -113,18 +114,20 @@ class AdminController extends Controller
             'image.image' => 'শুধুমাত্র ছবি ফাইল আপলোড করা যায়।',
             'image.max' => 'ছবির আকার সর্বোচ্চ 5MB হতে পারে।',
             'url.url' => 'সঠিক ওয়েবসাইট URL দিন।',
+            'url.max' => 'URL সর্বোচ্চ 255 অক্ষর হতে পারে।',
         ]);
 
         try {
             // Store the image
-            $path = $request->file('image')->store('customers', 'public');
-            $imageUrl = 'customers/' . basename($path);
+            $path = $request->file('image')->store('clients', 'public');
+            $imageUrl = 'clients/' . basename($path);
 
-            // Insert into customers table
-            DB::table('customers')->insert([
+            // Insert into clients table
+            DB::table('clients')->insert([
                 'name' => $request->name,
                 'image_url' => $imageUrl,
                 'url' => $request->url,
+                'featured' => $request->featured,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -135,40 +138,42 @@ class AdminController extends Controller
         }
     }
 
-    public function updateCustomer(Request $request, $id)
+    public function updateClient(Request $request, $id)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'image' => ['nullable', 'image', 'max:5120'],
             'url' => ['nullable', 'url', 'max:255'],
+            'featured' => ['boolean'],
         ]);
 
         try {
-            $customer = DB::table('customers')->where('id', $id)->first();
+            $client = DB::table('clients')->where('id', $id)->first();
             
-            if (!$customer) {
+            if (!$client) {
                 return back()->with('error', 'গ্রাহক খুঁজে পাওয়া যায়নি।');
             }
 
             $updateData = [
                 'name' => $request->name,
                 'url' => $request->url,
+                'featured' => $request->featured,
                 'updated_at' => now(),
             ];
 
             // Handle image update
             if ($request->hasFile('image')) {
                 // Delete old image
-                if (Storage::disk('public')->exists($customer->image_url)) {
-                    Storage::disk('public')->delete($customer->image_url);
+                if (Storage::disk('public')->exists($client->image_url)) {
+                    Storage::disk('public')->delete($client->image_url);
                 }
 
                 // Store new image
-                $path = $request->file('image')->store('customers', 'public');
-                $updateData['image_url'] = 'customers/' . basename($path);
+                $path = $request->file('image')->store('clients', 'public');
+                $updateData['image_url'] = 'clients/' . basename($path);
             }
 
-            DB::table('customers')->where('id', $id)->update($updateData);
+            DB::table('clients')->where('id', $id)->update($updateData);
 
             return back()->with('success', 'গ্রাহকের তথ্য আপডেট হয়েছে!');
         } catch (\Exception $e) {
@@ -176,22 +181,22 @@ class AdminController extends Controller
         }
     }
 
-    public function deleteCustomer($id)
+    public function deleteClient($id)
     {
         try {
-            $customer = DB::table('customers')->where('id', $id)->first();
+            $client = DB::table('clients')->where('id', $id)->first();
             
-            if (!$customer) {
+            if (!$client) {
                 return back()->with('error', 'গ্রাহক খুঁজে পাওয়া যায়নি।');
             }
 
             // Delete image from storage
-            if (Storage::disk('public')->exists($customer->image_url)) {
-                Storage::disk('public')->delete($customer->image_url);
+            if (Storage::disk('public')->exists($client->image_url)) {
+                Storage::disk('public')->delete($client->image_url);
             }
 
             // Delete from database
-            DB::table('customers')->where('id', $id)->delete();
+            DB::table('clients')->where('id', $id)->delete();
 
             return back()->with('success', 'গ্রাহক সফলভাবে মুছে ফেলা হয়েছে।');
         } catch (\Exception $e) {
@@ -264,7 +269,7 @@ class AdminController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'content' => ['required', 'string'],
-            'image' => ['nullable', 'image', 'max:5120'],
+            'image' => ['required', 'image', 'max:5120'],
             'published_at' => ['nullable', 'date'],
         ]);
 
@@ -448,7 +453,7 @@ class AdminController extends Controller
     {
         return [
             'galleries' => DB::table('galleries')->count(),
-            'customers' => DB::table('customers')->count(),
+            'clients' => DB::table('clients')->count(),
             'news' => DB::table('news')->count(),
             'features' => DB::table('features')->count(),
             'recent_galleries' => DB::table('galleries')->orderBy('created_at', 'desc')->limit(5)->get(),
@@ -496,8 +501,8 @@ class AdminController extends Controller
                 ->get();
         }
 
-        if ($type === 'all' || $type === 'customers') {
-            $results['customers'] = DB::table('customers')
+        if ($type === 'all' || $type === 'clients') {
+            $results['clients'] = DB::table('clients')
                 ->where('name', 'like', "%{$query}%")
                 ->limit(10)
                 ->get();

@@ -190,7 +190,7 @@
     <!------------------------------
     |            Sections           |
     ------------------------------->
-    @include('home.customers')
+    @include('home.clients')
 
     @include('home.features')
 

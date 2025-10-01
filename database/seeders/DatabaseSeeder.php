@@ -22,11 +22,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-
-        $this->seedNews();
-        $this->seedFeatures();
-        $this->seedGalleries();
-        $this->seedCustomers();
     }
 
     private function seedNews()
@@ -98,19 +93,19 @@ class DatabaseSeeder extends Seeder
         ]);
     }
 
-    private function seedCustomers()
+    private function seed()
     {
-        DB::table('customers')->insert([
+        DB::table('clients')->insert([
             [
                 'name' => 'Jagannathpur Govt. Degree College',
-                'image_url' => 'customers/jagannathpur.png',
+                'image_url' => 'clients/jagannathpur.png',
                 'url' => 'https://jagannathpurcollege.edu.bd',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'name' => 'Tajpur Degree College',
-                'image_url' => 'customers/tajpur.png',
+                'image_url' => 'clients/tajpur.png',
                 'url' => 'https://tajpurcollege.edu.bd',
                 'created_at' => now(),
                 'updated_at' => now(),

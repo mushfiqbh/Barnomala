@@ -1,7 +1,7 @@
-<header class="bg-white shadow-sm fixed w-full z-30">
+<header class="w-full bg-white shadow-sm fixed z-30">
     <div class="container py-4 flex justify-between items-center mx-auto">
         <a href="{{ url('/') }}" class="flex items-center">
-            <img src="{{ asset('images/logo.png') }}" alt="Pathshala Logo" class="h-10 md:h-12">
+            <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-8 md:h-12">
         </a>
         
         <!-- Mobile menu button -->
@@ -16,7 +16,7 @@
             <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/') }}">হোম</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/features') }}">বৈশিষ্ট্যসমূহ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/gallery') }}">গ্যালারী</a>
-            <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/customers') }}">গ্রাহকগণ</a>
+            <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/clients') }}">গ্রাহকগণ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/news') }}">সংবাদ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors" href="{{ url('/contact') }}">যোগাযোগ</a>
         </nav>
@@ -28,7 +28,7 @@
             <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/') }}">হোম</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/features') }}">বৈশিষ্ট্যসমূহ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/gallery') }}">গ্যালারী</a>
-            <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/customers') }}">গ্রাহকগণ</a>
+            <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/clients') }}">গ্রাহকগণ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/news') }}">সংবাদ</a>
             <a class="text-nav font-bold hover:text-blue-600 transition-colors py-2" href="{{ url('/contact') }}">যোগাযোগ</a>
         </nav>

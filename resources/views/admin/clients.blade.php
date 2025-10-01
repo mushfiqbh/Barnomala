@@ -18,21 +18,32 @@
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-gray-900">গ্রাহক ম্যানেজমেন্ট</h1>
-                        <p class="text-sm text-gray-600">{{ count($customers) }} জন গ্রাহক</p>
+                        <p class="text-sm text-gray-600">{{ count($clients) }} জন গ্রাহক</p>
                     </div>
                 </div>
 
-                <a href="/customers"
-                    class="inline-flex items-center px-3 py-2 bg-white/70 backdrop-blur-xl border border-white/20 rounded-xl text-sm font-medium text-gray-700 hover:bg-white/90 transition-all duration-300">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
-                        </path>
-                    </svg>
-                    দেখুন
-                </a>
+                <div class="flex items-center space-x-3">
+                    <a href="/admin"
+                        class="inline-flex items-center px-3 py-2 bg-white/70 backdrop-blur-xl border border-white/20 rounded-xl text-sm font-medium text-gray-700 hover:bg-white/90 transition-all duration-300">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                        Back
+                    </a>
+
+                    <a href="/clients"
+                        class="inline-flex items-center px-3 py-2 bg-white/70 backdrop-blur-xl border border-white/20 rounded-xl text-sm font-medium text-gray-700 hover:bg-white/90 transition-all duration-300">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                            </path>
+                        </svg>
+                        দেখুন
+                    </a>
+                </div>
             </div>
 
             <!-- Compact Messages -->
@@ -76,12 +87,12 @@
                     <h2 class="text-lg font-semibold text-gray-900">নতুন গ্রাহক যোগ করুন</h2>
                 </div>
 
-                <form action="{{ route('admin.customers.store') }}" method="POST" enctype="multipart/form-data"
-                    id="customerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form action="{{ route('admin.clients.store') }}" method="POST" enctype="multipart/form-data"
+                    id="clientForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     @csrf
 
                     <div class="col-span-1 space-y-4">
-                        <!-- Customer Name -->
+                        <!-- client Name -->
                         <div class="space-y-1">
                             <label for="name" class="block text-xs font-medium text-gray-700">
                                 গ্রাহকের নাম <span class="text-red-500">*</span>
@@ -94,7 +105,7 @@
                             @enderror
                         </div>
 
-                        <!-- Customer URL -->
+                        <!-- client URL -->
                         <div class="space-y-1">
                             <label for="url" class="block text-xs font-medium text-gray-700">
                                 ওয়েবসাইট URL
@@ -107,11 +118,34 @@
                             @enderror
                         </div>
 
+                        <!-- Featured Client Checkbox -->
+                        <div class="space-y-1">
+                            <label class="flex items-center space-x-2 cursor-pointer group">
+                                <div class="relative">
+                                    <input type="checkbox" name="featured" id="featured" value="1"
+                                        {{ old('featured') ? 'checked' : '' }} class="sr-only peer">
+                                    <div
+                                        class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-yellow-400 peer-checked:to-orange-500">
+                                    </div>
+                                </div>
+                                <span class="text-xs font-medium text-gray-700 group-hover:text-gray-900">
+                                    ফিচার্ড গ্রাহক
+                                    <svg class="w-3 h-3 inline text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </label>
+                            <p class="text-xs text-gray-500 ml-13">হোমপেজে প্রদর্শন করা হবে</p>
+                        </div>
+
                         <!-- Submit Button -->
                         <div class="flex items-end">
                             <button type="submit"
                                 class="w-full px-4 py-2 bg-gradient-to-r from-blue-500 to-indigo-600 text-white text-sm font-medium rounded-xl hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105">
-                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 inline mr-1" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                 </svg>
@@ -148,7 +182,7 @@
                 </form>
             </div>
 
-            <!-- Compact Customers List -->
+            <!-- Compact Clients List -->
             <div class="bg-white/70 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 overflow-hidden">
                 <div class="px-5 py-3 bg-gradient-to-r from-gray-50 to-gray-100 border-b border-gray-200">
                     <div class="flex items-center space-x-2">
@@ -162,21 +196,37 @@
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900">গ্রাহক তালিকা</h3>
                         <span
-                            class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">{{ count($customers) }}</span>
+                            class="px-2 py-1 bg-purple-100 text-purple-800 text-xs font-medium rounded-full">{{ count($clients) }}</span>
                     </div>
                 </div>
 
-                @if (count($customers) > 0)
+                @if (count($clients) > 0)
                     <div class="p-4">
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                            @foreach ($customers as $customer)
+                            @foreach ($clients as $client)
                                 <div
-                                    class="group relative bg-gray-50/50 rounded-xl p-3 hover:bg-blue-50/50 hover:shadow-md transition-all duration-300 border border-gray-100">
-                                    <!-- Customer Logo -->
+                                    class="group relative bg-gray-50/50 rounded-xl p-3 hover:bg-blue-50/50 hover:shadow-md transition-all duration-300 border {{ $client->featured ? 'border-yellow-300 bg-gradient-to-br from-yellow-50/50 to-orange-50/30' : 'border-gray-100' }}">
+
+                                    <!-- Featured Badge -->
+                                    @if ($client->featured)
+                                        <div class="absolute -top-2 -right-2 z-10">
+                                            <div
+                                                class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs px-2 py-1 rounded-full flex items-center space-x-1 shadow-lg">
+                                                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path
+                                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                                    </path>
+                                                </svg>
+                                                <span class="font-medium">ফিচার্ড</span>
+                                            </div>
+                                        </div>
+                                    @endif
+
+                                    <!-- client Logo -->
                                     <div class="flex justify-center mb-2">
-                                        @if ($customer->image_url)
-                                            <img src="{{ asset('storage/' . $customer->image_url) }}"
-                                                alt="{{ $customer->name }}" class="h-10 w-10 object-contain rounded-lg">
+                                        @if ($client->image_url)
+                                            <img src="{{ asset('storage/' . $client->image_url) }}"
+                                                alt="{{ $client->name }}" class="h-10 w-10 object-contain rounded-lg">
                                         @else
                                             <div class="h-10 w-10 bg-gray-200 rounded-lg flex items-center justify-center">
                                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor"
@@ -189,14 +239,14 @@
                                         @endif
                                     </div>
 
-                                    <!-- Customer Info -->
+                                    <!-- client Info -->
                                     <div class="text-center">
                                         <h4 class="text-sm font-medium text-gray-900 mb-1 truncate"
-                                            title="{{ $customer->name }}">{{ $customer->name }}</h4>
+                                            title="{{ $client->name }}">{{ $client->name }}</h4>
 
                                         <div class="flex items-center justify-between">
-                                            @if ($customer->url)
-                                                <a href="{{ $customer->url }}" target="_blank"
+                                            @if ($client->url)
+                                                <a href="{{ $client->url }}" target="_blank"
                                                     class="text-blue-500 hover:text-blue-700 p-1 rounded transition-colors duration-200">
                                                     <svg class="w-3 h-3" fill="none" stroke="currentColor"
                                                         viewBox="0 0 24 24">
@@ -211,7 +261,7 @@
                                             @endif
 
                                             <!-- Delete Button -->
-                                            <form action="{{ route('admin.customers.delete', $customer->id) }}"
+                                            <form action="{{ route('admin.clients.delete', $client->id) }}"
                                                 method="POST"
                                                 onsubmit="return confirm('এই গ্রাহকের তথ্য মুছে ফেলার বিষয়ে আপনি কি নিশ্চিত?')"
                                                 class="inline">

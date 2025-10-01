@@ -14,9 +14,9 @@ class HomeController extends Controller
     public function index()
     {
         $features = DB::table('features')->take(6)->get();
-        $news = DB::table('news')->take(6)->get();
-        $customers = DB::table('customers')->take(3)->get();
+        $news = DB::table('news')->orderBy('created_at', 'desc')->take(10)->get();
+        $clients = DB::table('clients')->where('featured', true)->take(6)->get();
 
-        return view('home.index', compact('features', 'news', 'customers'));
+        return view('home.index', compact('features', 'news', 'clients'));
     }
 }
