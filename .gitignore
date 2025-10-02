@@ -26,3 +26,4 @@ storage/pail
 
 # Public (keep build + storage, ignore hot)
 public/hot
+public/storage
