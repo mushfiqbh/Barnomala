@@ -41,6 +41,3 @@ deployment:
     - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan config:cache
     - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan route:cache
     - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan view:cache
-
-    # === STORAGE LINK ===
-    - cd $APPPATH && /opt/cpanel/ea-php82/root/usr/bin/php artisan storage:link
