@@ -17,12 +17,6 @@
 
 <body class="bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 min-h-screen flex items-center justify-center">
     <div class="w-full max-w-md my-5">
-        <!-- Logo/Header -->
-        <div class="text-center mb-8">
-            <h1 class="text-2xl font-bold text-gray-900 mb-2">অ্যাডমিন প্যানেল</h1>
-            <p class="text-gray-600">পাঠশালা ইআইএমএস ম্যানেজমেন্ট সিস্টেম</p>
-        </div>
-
         <!-- Login Card -->
         <div class="bg-white rounded-3xl shadow-2xl p-8 border border-gray-100">
             <div class="mb-6">
@@ -136,7 +130,7 @@
 
         <!-- Footer -->
         <div class="text-center mt-8 text-sm text-gray-600">
-            <p>&copy; {{ date('Y') }} পাঠশালা ইআইএমএস। সকল অধিকার সংরক্ষিত।</p>
+            <p>&copy; {{ date('Y') }} বর্ণমালা ইআইএমএস। সকল অধিকার সংরক্ষিত।</p>
         </div>
     </div>
 

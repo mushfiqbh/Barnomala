@@ -94,17 +94,10 @@
                 <h2 class="text-2xl font-semibold text-primary mb-6">আমাদের সাথে যোগাযোগ করুন</h2>
 
                 <form class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label for="fname" class="block text-sm font-medium text-gray-700 mb-2">প্রথম নাম *</label>
-                            <input type="text" id="fname" name="fname" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                        </div>
-                        <div>
-                            <label for="lname" class="block text-sm font-medium text-gray-700 mb-2">শেষ নাম *</label>
-                            <input type="text" id="lname" name="lname" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                        </div>
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-2">নাম *</label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -112,36 +105,29 @@
                             <label for="email" class="block text-sm font-medium text-gray-700 mb-2">ইমেইল এড্রেস
                                 *</label>
                             <input type="email" id="email" name="email" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                         </div>
                         <div>
                             <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">ফোন নাম্বার *</label>
                             <input type="text" id="phone" name="phone" required
-                                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                         </div>
                     </div>
 
                     <div>
-                        <label for="institution" class="block text-sm font-medium text-gray-700 mb-2">প্রতিষ্ঠানের নাম
-                            *</label>
-                        <input type="text" id="institution" name="institution" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
-                    </div>
-
-                    <div>
-                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">ঠিকানা *</label>
-                        <input type="text" id="address" name="address" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-2">ঠিকানা</label>
+                        <input type="text" id="address" name="address"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors">
                     </div>
 
                     <div>
                         <label for="message" class="block text-sm font-medium text-gray-700 mb-2">বার্তা *</label>
                         <textarea id="message" name="message" rows="5" required
-                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical"></textarea>
+                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-vertical"></textarea>
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                        class="w-full bg-blue-600 text-white cursor-pointer py-2 px-6 rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
                         বার্তা পাঠান
                     </button>
                 </form>

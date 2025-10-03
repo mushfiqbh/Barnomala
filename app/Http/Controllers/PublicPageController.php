@@ -43,7 +43,7 @@ class PublicPageController extends Controller
 
     public function clients()
     {
-        $clients = DB::table('clients')->get();
+        $clients = DB::table('clients')->paginate(25);
         return view('pages.clients', compact('clients'));
     }
 }

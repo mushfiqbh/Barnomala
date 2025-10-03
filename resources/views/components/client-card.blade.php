@@ -17,7 +17,7 @@
             <!-- Content -->
             <div class="flex-1 flex flex-col">
                 <h2
-                    class="text-sm font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors duration-300 leading-tight min-h-[3rem] flex items-center justify-center text-center opacity-100 z-10 relative">
+                    class="px-2 text-sm font-bold text-primary mb-3 group-hover:text-blue-600 transition-colors duration-300 leading-tight min-h-[3rem] flex items-center justify-center text-center opacity-100 z-10 relative">
                     {{ $client->name }}
                 </h2>
             </div>

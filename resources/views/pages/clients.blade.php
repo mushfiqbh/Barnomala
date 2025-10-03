@@ -37,11 +37,63 @@
             </div>
 
             <!-- Modern Clients Grid -->
-            <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-6 sm:gap-8">
                 @foreach ($clients as $index => $client)
                     <x-client-card :client="$client" :index="$index" />
                 @endforeach
             </div>
+
+            <!-- Pagination Links -->
+            @if($clients->hasPages())
+                <div class="w-full mx-auto mt-12">
+                    <div class="flex justify-center">
+                        <nav class="inline-flex rounded-lg shadow-sm bg-white/80 backdrop-blur-sm border border-gray-200 p-2">
+                            {{-- Previous Button --}}
+                            @if ($clients->onFirstPage())
+                                <span class="px-4 py-2 text-gray-400 cursor-not-allowed rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </span>
+                            @else
+                                <a href="{{ $clients->previousPageUrl() }}" class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                                    </svg>
+                                </a>
+                            @endif
+
+                            {{-- Page Numbers --}}
+                            @foreach ($clients->getUrlRange(1, $clients->lastPage()) as $page => $url)
+                                @if ($page == $clients->currentPage())
+                                    <span class="px-4 py-2 mx-1 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-lg">
+                                        {{ $page }}
+                                    </span>
+                                @else
+                                    <a href="{{ $url }}" class="px-4 py-2 mx-1 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 rounded-lg font-medium">
+                                        {{ $page }}
+                                    </a>
+                                @endif
+                            @endforeach
+
+                            {{-- Next Button --}}
+                            @if ($clients->hasMorePages())
+                                <a href="{{ $clients->nextPageUrl() }}" class="px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200 rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </a>
+                            @else
+                                <span class="px-4 py-2 text-gray-400 cursor-not-allowed rounded-lg">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                                    </svg>
+                                </span>
+                            @endif
+                        </nav>
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 

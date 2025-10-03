@@ -1,25 +1,27 @@
-@extends('layout.app')
+@extends('layout.admin')
 
 @section('title', 'Feature Management')
 
 @section('content')
-    <div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-4">
-        <div class="max-w-6xl mx-auto">
-            <!-- Header Section -->
-            <div class="mb-8">
-                <div class="flex items-center space-x-3 mb-2">
-                    <div
-                        class="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
-                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z">
-                            </path>
-                        </svg>
+    <div class="min-h-screen p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Enhanced Header -->
+            <div class="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 via-blue-500 to-indigo-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 011-1h1a2 2 0 100-4H7a1 1 0 01-1-1V7a1 1 0 011-1h3a1 1 0 001-1V4z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">ফিচার ম্যানেজমেন্ট</h1>
+                            <p class="text-sm text-gray-600 mt-1">অ্যাপ্লিকেশন ফিচার দক্ষতার সাথে পরিচালনা করুন</p>
+                        </div>
                     </div>
-                    <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                        Feature Management</h1>
                 </div>
-                <p class="text-sm text-gray-600 ml-11">Manage your application features efficiently</p>
             </div>
 
             <!-- Add Feature Form -->

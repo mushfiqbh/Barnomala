@@ -1,45 +1,28 @@
-@extends('layout.app')
+@extends('layout.admin')
 
 @section('title', 'সংবাদ ম্যানেজমেন্ট')
 
 @section('content')
-    <div class="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="mb-8">
-                <div class="flex items-center justify-between">
-                    <div>
-                        <h1 class="text-4xl font-bold text-gray-900 mb-2">সংবাদ ম্যানেজমেন্ট</h1>
-                        <nav class="flex" aria-label="Breadcrumb">
-                            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                                <li class="inline-flex items-center">
-                                    <a href="{{ route('admin.index') }}"
-                                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600">
-                                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                            <path
-                                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                                            </path>
-                                        </svg>
-                                        অ্যাডমিন
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="flex items-center">
-                                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd"
-                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                clip-rule="evenodd"></path>
-                                        </svg>
-                                        <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2">সংবাদ</span>
-                                    </div>
-                                </li>
-                            </ol>
-                        </nav>
+    <div class="min-h-screen p-4 sm:p-6 lg:p-8">
+        <div class="max-w-7xl mx-auto">
+            <!-- Enhanced Header -->
+            <div class="bg-white/60 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">সংবাদ ম্যানেজমেন্ট</h1>
+                            <p class="text-sm text-gray-600 mt-1">সকল সংবাদ পরিচালনা এবং প্রকাশ করুন</p>
+                        </div>
                     </div>
 
-                    <div class="flex space-x-3">
+                    <div class="flex flex-wrap items-center gap-3">
                         <a href="/news"
-                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-200 rounded-xl text-sm font-medium text-gray-700 hover:bg-gray-50 transition-all duration-200">
                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -47,7 +30,8 @@
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
                                 </path>
                             </svg>
-                            সকল সংবাদ দেখুন
+                            <span class="hidden sm:inline">সকল সংবাদ দেখুন</span>
+                            <span class="sm:hidden">দেখুন</span>
                         </a>
                     </div>
                 </div>

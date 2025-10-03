@@ -63,7 +63,7 @@
         <div class="relative z-10 w-full lg:w-[60%] mb-8 lg:mb-0 lg:-translate-x-14 px-4 lg:px-0 scroll-animate"
             data-animation="slide-in-left">
             <img src="{{ asset('images/hero.png') }}" alt="Pathshala Banner"
-                class="w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
+                class="w-[80%] max-w-md lg:max-w-none mx-auto lg:mx-0">
         </div>
 
         <!-- Content -->

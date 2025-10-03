@@ -15,6 +15,7 @@ use App\Http\Controllers\{
 
 // Home Page
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::post('/contact', [HomeController::class, 'send'])->name('contact.send');
 
 // Public Pages
 Route::controller(PublicPageController::class)->group(function () {

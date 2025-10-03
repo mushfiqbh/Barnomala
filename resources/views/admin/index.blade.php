@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.admin')
 
 @section('content')
     <div class="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50">
@@ -28,13 +28,6 @@
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                     ওয়েবসাইটের সকল কন্টেন্ট পরিচালনা করুন এবং আপডেট করুন
                 </p>
-
-                <!-- Welcome Message -->
-                <div class="mt-4">
-                    <p class="text-sm text-gray-500">
-                        স্বাগতম, <span class="font-medium text-gray-700">{{ Auth::user()->name ?? 'অ্যাডমিন' }}</span>
-                    </p>
-                </div>
             </div>
 
             <!-- Compact Management Cards -->

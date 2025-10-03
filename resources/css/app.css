@@ -5,8 +5,15 @@
 @source '../**/*.blade.php';
 @source '../**/*.js';
 
+@font-face {
+    font-family: "Kalpurush";
+    src: url("/fonts/kalpurush.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
 @theme {
-    --font-sans: "Anek Bangla", ui-sans-serif, system-ui, sans-serif,
+    --font-sans: "Kalpurush", ui-sans-serif, system-ui, sans-serif,
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
@@ -269,7 +276,8 @@ li {
 
 /* Pulse animation for decorative elements */
 @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
         opacity: 0.3;
         transform: scale(1);
     }
@@ -285,7 +293,8 @@ li {
 
 /* Bounce animation for news decorative element */
 @keyframes bounce-slow {
-    0%, 100% {
+    0%,
+    100% {
         transform: translateY(0);
     }
     50% {

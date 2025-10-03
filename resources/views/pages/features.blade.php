@@ -39,7 +39,7 @@
             <!-- Modern Features Grid -->
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
                 @foreach ($features as $index => $feature)
-                    @include('.layout.features-grid', ['feature' => $feature, 'index' => $index])
+                    <x-feature-card :feature="$feature" :index="$index" />
                 @endforeach
             </div>
         </div>

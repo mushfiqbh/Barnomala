@@ -25,7 +25,7 @@
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-5 mt-8 scroll-animate" data-animation="scale-in" data-delay="300">
         @foreach ($features->take(6) as $feature)
-            @include('.layout.features-grid', ['feature' => $feature, 'index' => $loop->index])
+            <x-feature-card :feature="$feature" :index="$loop->index" />
         @endforeach
     </div>
 
