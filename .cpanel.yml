@@ -23,12 +23,15 @@ deployment:
     - /bin/cp package-lock.json $APPPATH
     - /bin/cp vite.config.js $APPPATH
     - /bin/cp phpunit.xml $APPPATH
-
     - /bin/cp .editorconfig $APPPATH
     - /bin/cp .env.example $APPPATH
 
     # === REMOVE FILES WE DON’T WANT ===
     - /bin/rm -rf $APPPATH/.git
+    - /bin/rm -rf $DEPLOYPATH/index.php
+
+    # === RENAME index-prod.php TO index.php ===
+    - /bin/mv $DEPLOYPATH/index-prod.php $DEPLOYPATH/index.php
 
     # === INSTALL PHP DEPENDENCIES ===
     - cd $APPPATH && /opt/cpanel/composer/bin/composer install --no-dev --optimize-autoloader
