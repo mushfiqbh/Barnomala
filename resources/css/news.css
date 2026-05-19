@@ -1,0 +1,27 @@
+.prose {
+    color: #374151;
+    max-width: none;
+}
+
+.prose p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* Enhance readability */
+.prose p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.5rem;
+    line-height: 3rem;
+    margin: 0.2rem 0.5rem 0 0;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .prose p:first-of-type::first-letter {
+        font-size: 2.5rem;
+        line-height: 2rem;
+    }
+}
