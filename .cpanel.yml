@@ -31,6 +31,7 @@ deployment:
     # === Unzip the build.zip file to the public directory ===
     - /bin/rm -rf $APPPATH/public/build/* || true
     - /bin/unzip -o public/build.zip -d $PUBLICPATH || true
+    - /bin/unzip -o public/build.zip -d $APPPATH/public || true
 
     # === Fix index.php paths ===
     - /bin/sed -i "s|../vendor/autoload.php|../laravel_projects/landing_site/vendor/autoload.php|g" $PUBLICPATH/index.php
