@@ -6,7 +6,6 @@ export default defineConfig({
     base: "/",
     build: {
         outDir: "public/build",
-        manifest: true,
         assetsDir: "assets",
     },
     plugins: [
