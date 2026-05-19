@@ -42,10 +42,8 @@ Route::controller(PublicPageController::class)->group(function () {
 // =============================================================================
 
 Route::controller(AuthController::class)->group(function () {
-    // Login Routes
-    Route::get('/login', 'redirectToAdminLogin')->name('login'); // Laravel auth system compatibility
-    Route::get('/admin/login', 'showLoginForm')->name('admin.login');
-    Route::post('/admin/login', 'login')->name('admin.login.submit');
+    // Redirect /login
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
 
     // Logout Route
     Route::post('/admin/logout', 'logout')->name('admin.logout');

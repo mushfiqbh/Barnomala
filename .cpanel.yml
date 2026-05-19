@@ -7,6 +7,7 @@ deployment:
     
     # === Create backend folder if not exists ===
     - /bin/mkdir -p $APPPATH
+    - /bin/rm -rf $APPPATH/database/migrations/* || true
 
     # === Copy backend folders ===
     - /bin/cp -R app $APPPATH
@@ -29,8 +30,10 @@ deployment:
     - /bin/cp -R public/.htaccess $PUBLICPATH || true
 
     # === Unzip the build.zip file to the public directory ===
+    - /bin/rm -rf $APPPATH/public/build/* || true
     - /bin/unzip -o public/build.zip -d $PUBLICPATH || true
 
     # === Fix index.php paths ===
     - /bin/sed -i "s|../vendor/autoload.php|../laravel_projects/landing_site/vendor/autoload.php|g" $PUBLICPATH/index.php
     - /bin/sed -i "s|../bootstrap/app.php|../laravel_projects/landing_site/bootstrap/app.php|g" $PUBLICPATH/index.php
+    
